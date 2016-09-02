@@ -38,6 +38,7 @@ class ScaleEngineAPI
     def request_signature
       params = query
       json_params = JSON.generate(params)
+      json_params = json_params.gsub("/","\\/")
 
       # Compute new SHA256 HMAC
       digest = OpenSSL::Digest::SHA256.new
