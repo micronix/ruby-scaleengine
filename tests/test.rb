@@ -1,6 +1,8 @@
 ## NOT AN OFFICIAL TEST
 ## No Unit/Functional tests present
 ## THIS FILE IS JUST A TEMPORARY TEST SCRIPT
+$:.push File.expand_path("../../lib", __FILE__)
+
 require "logger"
 require "scaleengine"
 
@@ -14,9 +16,9 @@ ScaleEngineAPI::Configuration.cdn = ENV["SCALEENGINE_CDN"]
 
 se = ScaleEngineAPI.new
 req = se.sevu.addstreamuser({
-	app: 'conferencecloud-origin', 
-	stream: "conferencecloud-tester", 
-	user: "conferencecloud", 
+	app: 'conferencecloud-origin',
+	stream: "conferencecloud-tester",
+	user: "conferencecloud",
 	pass: (0...16).map { (65 + rand(26)).chr }.join # Random 16 character string
 })
 # req = se.sevu.removestreamuser({
